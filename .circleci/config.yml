@@ -1,3 +1,5 @@
+orbs:
+  slack: circleci/slack@3.4.0
 version: 2.1
 jobs:
   slack_test:
@@ -9,6 +11,9 @@ jobs:
           command: |
             curl -X POST -H 'Content-type:application/json' \
             --data "{'text':'Hi!'}" ${SLACK_WEBHOOK}
+      - slack/notify:
+          color: '#42e2f4'
+          message: This is a custom message notification
 
 workflows:
  version: 2
