@@ -1,19 +1,15 @@
 version: 2.1
 jobs:
-  slack_test:
+  envvar_test:
     docker:
       - image: circleci/node:10
     steps:
       - run:
-          name: Post message
-          command: |
-            curl -X POST \
-            -H 'Content-type:application/json' \
-            --data "{'text':'Hi!'}" ${SLACK_WEBHOOK}
+          name: プロジェクト設定の環境変数を出力する
+          command: echo $PROJECT_VARIABLE
 
 workflows:
- version: 2
- main:
-   jobs:
-     - slack_test:
-         context: SLACK_INTEGRATION
+  version: 2
+  main:
+    jobs:
+      - envvar_test
