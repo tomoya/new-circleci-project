@@ -1,12 +1,19 @@
 version: 2.1
 jobs:
-  build:
+  envvar_test:
     docker:
       - image: circleci/node:10
     steps:
       - run:
-          name: BASE64を利用して複数行の環境変数を扱う
-          environment:
-            MULTILINE_ENV_VAR: MeihjOebrgoy6KGM55uuCg==
-          command: |
-            echo $MULTILINE_ENV_VAR | base64 --decode
+          name: プロジェクト設定の環境変数を出力する
+          command: echo $EXAMPLE_VARIABLE
+      - run:
+          name: コンテキストの環境変数を出力する
+          command: echo $CONTEXT_VARIABLE
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - envvar_test:
+          context: EXAMPLE_CONTEXT
