@@ -1,19 +1,12 @@
 version: 2.1
 jobs:
-  slack_test:
+  build:
     docker:
       - image: circleci/node:10
     steps:
       - run:
-          name: Post message
+          name: BASE64を利用して複数行の環境変数を扱う
+          environment:
+            MULTILINE_ENV_VAR: MeihjOebrgoy6KGM55uuCg==
           command: |
-            curl -X POST \
-            -H 'Content-type:application/json' \
-            --data "{'text':'Hi!'}" ${SLACK_WEBHOOK}
-
-workflows:
- version: 2
- main:
-   jobs:
-     - slack_test:
-         context: SLACK_INTEGRATION
+            echo $MULTILINE_ENV_VAR | base64 --decode
