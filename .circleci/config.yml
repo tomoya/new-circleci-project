@@ -13,11 +13,11 @@ jobs:
           name: プロジェクト設定の環境変数を出力する
           command: echo $PROJECT_VARIABLE
       - run:
-          name: BASE64で符号化されたプロジェクト設定の環境変数を出力する
-          command: echo $BASE64_PROJECT_VARIABLE | base64 --decode
-      - run:
           name: コンテキストの環境変数を出力する
           command: echo $CONTEXT_VARIABLE
+      - run:
+          name: BASE64で符号化されたプロジェクト設定の環境変数を出力する
+          command: echo $BASE64_PROJECT_VARIABLE | base64 --decode
 
 workflows:
   version: 2
