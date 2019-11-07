@@ -1,19 +1,19 @@
+orbs:
+  pr-comment: benjlevesque/pr-comment@0.1.4
 version: 2.1
 jobs:
-  slack_test:
+  pull_request_comment_test:
     docker:
       - image: circleci/node:10
     steps:
-      - run:
-          name: Post message
-          command: |
-            curl -X POST \
-            -H 'Content-type:application/json' \
-            --data "{'text':'Hi!'}" ${SLACK_WEBHOOK}
-
+      - checkout
+      - pr-comment/pr-comment:
+          comment: |
+            GitHubプルリクエストにコメント
+            ${CIRCLE_BUILD_URL}
+          maxComments: 10
 workflows:
  version: 2
  main:
    jobs:
-     - slack_test:
-         context: SLACK_INTEGRATION
+     - pull_request_comment_test
