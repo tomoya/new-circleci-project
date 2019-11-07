@@ -9,8 +9,8 @@ jobs:
       - checkout
       - pr-comment/pr-comment:
           comment: |
-            "GitHubプルリクエストにコメント
-            ${CIRCLE_BUILD_URL}"
+            GitHubプルリクエストにコメント
+            ${CIRCLE_BUILD_URL}
           maxComments: 10
 workflows:
  version: 2
