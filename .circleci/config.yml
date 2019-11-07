@@ -9,7 +9,6 @@ jobs:
       - checkout
       - pr-comment/pr-comment:
           comment: GitHubプルリクエストにコメント
-          maxComments: 10
 workflows:
  version: 2
  main:
