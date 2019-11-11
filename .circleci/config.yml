@@ -1,19 +1,16 @@
 version: 2.1
 jobs:
-  slack_test:
+  deploy_key_test:
     docker:
       - image: circleci/node:10
     steps:
-      - run:
-          name: Post message
-          command: |
-            curl -X POST \
-            -H 'Content-type:application/json' \
-            --data "{'text':'Hi!'}" ${SLACK_WEBHOOK}
+      - add_ssh_keys:
+          fingerprints:
+            - "72:fc:38:b1:76:a7:51:38:da:e9:7f:c8:07:07:8a:0b"
+      - checkout
 
 workflows:
  version: 2
  main:
    jobs:
-     - slack_test:
-         context: SLACK_INTEGRATION
+     - deploy_key_test
