@@ -8,6 +8,9 @@ jobs:
           fingerprints:
             - "72:fc:38:b1:76:a7:51:38:da:e9:7f:c8:07:07:8a:0b"
       - checkout
+      - run:
+          name: プッシュ
+          command: git push origin master
 
 workflows:
  version: 2
