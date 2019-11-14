@@ -11,13 +11,15 @@ jobs:
           command: ls -al ~/.ssh
       - run:
           command: cat ~/.ssh/known_hosts
-      # - add_ssh_keys:
-      #     fingerprints:
-      #       - "e4:76:09:45:8f:fc:3d:7f:c0:6e:7b:e6:c5:6d:37:3c"
-      # - run:
-      #     command: ls -al ~/.ssh
-      # - run:
-      #     command: cat ~/.ssh/known_hosts
+      - add_ssh_keys:
+          fingerprints:
+            - "e4:76:09:45:8f:fc:3d:7f:c0:6e:7b:e6:c5:6d:37:3c"
+      - run:
+          command: ls -al ~/.ssh
+      - run:
+          command: cat ~/.ssh/known_hosts
+      - run:
+          command: cat ~/.ssh/config
       - run:
           command: git clone git@github.com:tomoya/new-circleci-project-private.git
 
