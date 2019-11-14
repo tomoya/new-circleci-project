@@ -15,9 +15,11 @@ jobs:
           fingerprints:
             - "e4:76:09:45:8f:fc:3d:7f:c0:6e:7b:e6:c5:6d:37:3c"
       - run:
+          command: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      - run:
           command: ls -al ~/.ssh
-      # - run:
-      #     command: cat ~/.ssh/known_hosts
+      - run:
+          command: cat ~/.ssh/known_hosts
       - run:
           command: cat ~/.ssh/config
       - run:
