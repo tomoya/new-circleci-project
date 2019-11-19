@@ -7,20 +7,20 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            # - "e4:76:09:45:8f:fc:3d:7f:c0:6e:7b:e6:c5:6d:37:3c"
+            - "e4:76:09:45:8f:fc:3d:7f:c0:6e:7b:e6:c5:6d:37:3c"
             - "b6:fe:76:8a:a8:f0:e4:22:f2:8b:fe:da:2d:83:b3:e9"
       - run:
           command: ls -al ~/.ssh
       - run:
           command: ssh-add -l
-      # - run:
-      #     command: git clone git@github.com:tomoya/new-circleci-project-private.git
-      # - run:
-      #     command: ssh-add -D
-      # - run:
-      #     command: ssh-add ~/.ssh/id_rsa_e47609458ffc3d7fc06e7be6c56d373c
-      # - run:
-      #     command: ssh-add -l
+      - run:
+          command: git clone git@github.com:tomoya/new-circleci-project-private.git
+      - run:
+          command: ssh-add -D
+      - run:
+          command: ssh-add ~/.ssh/id_rsa_b6fe768aa8f0e422f28bfeda2d83b3e9
+      - run:
+          command: ssh-add -l
       - run:
           command: git clone git@github.com:tomoya/new-circleci-project-private-2.git
 
