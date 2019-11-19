@@ -12,7 +12,15 @@ jobs:
       - run:
           command: ls -al ~/.ssh
       - run:
+          command: ssh-add -l
+      - run:
           command: git clone git@github.com:tomoya/new-circleci-project-private.git
+      - run:
+          command: ssh-add -D
+      - run:
+          command: ssh-add ~/.ssh/id_rsa_e47609458ffc3d7fc06e7be6c56d373c
+      - run:
+          command: ssh-add -l
       - run:
           command: git clone git@github.com:tomoya/new-circleci-project-private-2.git
 
