@@ -1,0 +1,6 @@
+[submodule "new-circleci-project-private"]
+	path = new-circleci-project-private
+	url = git@github.com:tomoya/new-circleci-project-private.git
+[submodule "new-circleci-project-private-2"]
+	path = new-circleci-project-private-2
+	url = git@github.com:tomoya/new-circleci-project-private-2.git
