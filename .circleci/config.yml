@@ -13,6 +13,8 @@ jobs:
           command: |
             GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_b6fe768aa8f0e422f28bfeda2d83b3e9" git submodule update --init --remote new-circleci-project-private
             GIT_SSH_COMMAND="ssh -i ~/.ssh/id_rsa_e47609458ffc3d7fc06e7be6c56d373c" git submodule update --init --remote new-circleci-project-private-2
+      - run:
+          command: ls -al ~/project
 
 workflows:
  version: 2
