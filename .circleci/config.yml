@@ -1,13 +1,21 @@
-version: 2
+version: 2.1
 jobs:
-  build:
+  deploy_key_test:
     docker:
       - image: ruby:2.6
     steps:
       - checkout
+      - add_ssh_keys:
+          fingerprints:
+            - "e4:76:09:45:8f:fc:3d:7f:c0:6e:7b:e6:c5:6d:37:3c"
+            - "b6:fe:76:8a:a8:f0:e4:22:f2:8b:fe:da:2d:83:b3:e9"
       - run:
-          command: ls -al ~/
+          command: ls -al ~/.ssh
       - run:
-          command: ls -al /
-      - run:
-          command: ls -al /root
+          command: cat ~/.ssh/config
+
+workflows:
+ version: 2
+ main:
+   jobs:
+     - deploy_key_test
